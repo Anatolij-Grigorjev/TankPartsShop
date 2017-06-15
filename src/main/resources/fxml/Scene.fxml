@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1024.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.tiem625.tankpartsshop.FXMLController">
+<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tiem625.tankpartsshop.controller.MainFrameController">
    <children>
       <TitledPane alignment="TOP_LEFT" collapsible="false" layoutX="43.0" layoutY="29.0" prefHeight="125.0" prefWidth="938.0" text="Tank Parts" textAlignment="JUSTIFY">
          <opaqueInsets>
@@ -16,7 +16,7 @@
          <content>
             <HBox alignment="CENTER" prefHeight="112.0" prefWidth="936.0" spacing="25.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="64.0" prefWidth="124.0" text="CHASSIS" />
+                  <Button fx:id="btnNewChassis" mnemonicParsing="false" onAction="#handleNewChassisButton" prefHeight="64.0" prefWidth="124.0" text="CHASSIS" />
                   <Button layoutX="20.0" layoutY="20.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="124.0" text="TRACKS" />
                   <Button layoutX="144.0" layoutY="20.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="124.0" text="TURRET" />
                   <Button layoutX="268.0" layoutY="20.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="124.0" text="ENGINE" />
