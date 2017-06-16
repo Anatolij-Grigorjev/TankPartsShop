@@ -14,8 +14,7 @@ public class MainApp extends Application {
         
         Scenes.init(this);
         
-        Scene scene = new Scene(Scenes.SCENE_MAIN_WINDOW);
-        scene.getStylesheets().add("/styles/Styles.css");
+        Scene scene = Scenes.SCENE_MAIN_WINDOW.getScene();
         
         stage.setTitle("Tank Parts Importer Shop");
         stage.setScene(scene);

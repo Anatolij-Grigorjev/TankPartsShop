@@ -24,6 +24,7 @@ public class MainFrameController implements Initializable {
     
     @FXML
     Button btnNewChassis;
+    Stage newChassisModal;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -32,10 +33,13 @@ public class MainFrameController implements Initializable {
     
     @FXML
     private void handleNewChassisButton(Event source) {
-        
-        Stage stage = new Stage(StageStyle.UTILITY);
-        stage.setScene(new Scene(Scenes.SCENE_NEW_CHASSIS));
-        stage.showAndWait();
+        if (newChassisModal == null) {
+            newChassisModal = Scenes.initStage(Scenes.SCENE_NEW_CHASSIS, (Stage stage) -> {
+                stage.initStyle(StageStyle.UTILITY);
+            });
+            
+        }
+        newChassisModal.showAndWait();
     }
     
 }

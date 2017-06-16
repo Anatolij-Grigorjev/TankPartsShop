@@ -1,0 +1,11 @@
+.button {
+    -fx-font-weight: bold;
+}
+
+.cancel-btn {
+    -fx-background-color: lightcoral;
+}
+
+.submit-btn {
+    -fx-background-color: lightgreen;
+}
