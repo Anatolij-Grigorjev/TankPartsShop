@@ -8,8 +8,9 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import com.tiem625.tankpartsshop.components.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="400.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.tiem625.tankpartsshop.controller.NewChassisController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="400.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tiem625.tankpartsshop.controller.NewChassisController">
    <children>
       <VBox layoutY="-4.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="403.0" spacing="10.0">
          <children>
@@ -106,16 +107,20 @@
                         <Label text="Regen Delay:" GridPane.rowIndex="3" />
                         <Label text="Active Sprites: " GridPane.rowIndex="4" />
                         <Label text="Price: " GridPane.rowIndex="5" />
-                        <TextField GridPane.columnIndex="1" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <DecimalInputField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <DecimalInputField GridPane.columnIndex="1" />
+                        <DecimalInputField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <DecimalInputField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <DecimalInputField GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <DecimalInputField GridPane.columnIndex="1" GridPane.rowIndex="5" />
                      </children>
                   </GridPane>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="255.0" layoutY="22.0" mnemonicParsing="false" prefHeight="103.0" prefWidth="126.0" styleClass="submit-btn" text="Make JSON" textAlignment="CENTER" />
-                  <Button alignment="CENTER" cancelButton="true" contentDisplay="CENTER" layoutX="255.0" layoutY="125.0" mnemonicParsing="false" prefHeight="103.0" prefWidth="126.0" styleClass="cancel-btn" text="Cancel" textAlignment="CENTER" />
+                  <VBox layoutX="255.0" layoutY="22.0" prefHeight="205.0" prefWidth="126.0" spacing="25.0">
+                     <children>
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="255.0" layoutY="22.0" mnemonicParsing="false" prefHeight="103.0" prefWidth="126.0" styleClass="submit-btn" text="Make JSON" textAlignment="CENTER" />
+                        <Button alignment="CENTER" cancelButton="true" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="103.0" prefWidth="126.0" styleClass="cancel-btn" text="Cancel" textAlignment="CENTER" />
+                     </children>
+                  </VBox>
                </children>
             </AnchorPane>
             <GridPane prefHeight="100.0" prefWidth="390.0" styleClass="vector-edit-grid" vgap="5.0">
