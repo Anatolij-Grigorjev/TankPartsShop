@@ -15,13 +15,17 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class DecimalInputField extends TextField {
     
-    private final String DECIMAL_REGEX = "/^\\d+\\.?\\d*$/";
+    private final String DECIMAL_REGEX = "^\\d+\\.?\\d*$";
     
     public DecimalInputField() {
         super();
         this.textProperty().addListener((value, oldVal, newVal) -> {
             if (!newVal.matches(DECIMAL_REGEX)) {
-                this.setText(newVal.replaceAll("\\D+", ""));
+                if (oldVal.matches(DECIMAL_REGEX)) {
+                   this.setText(oldVal); 
+                } else {
+                    this.setValue(BigDecimal.ZERO);
+                }
             }
         });
     }
