@@ -23,11 +23,13 @@ public class Scenes {
     
     public static ShopScene SCENE_MAIN_WINDOW;
     public static ShopScene SCENE_NEW_CHASSIS;
+    public static ShopScene SCENE_EDIT_TRANSFORM;
     
-    public static void init(Application loader) throws IOException {
+    public static void init() throws IOException {
         
         SCENE_MAIN_WINDOW = new ShopScene("/fxml/Scene.fxml");
         SCENE_NEW_CHASSIS = new ShopScene("/fxml/NewChassis.fxml", Arrays.asList("/styles/NewChassis.css"));
+        SCENE_EDIT_TRANSFORM = new ShopScene("/fxml/EditTransform.fxml");
         
     }
     

@@ -7,7 +7,6 @@ package com.tiem625.tankpartsshop.components;
 
 import java.io.File;
 import java.io.IOException;
-import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -20,7 +19,7 @@ import javafx.stage.FileChooser;
  *
  * @author Tiem625
  */
-public class PickFileControl extends VBox {
+public class PickFileControl extends CustomVBoxControl {
     
     @FXML
     private Label fieldLabel;
@@ -28,22 +27,11 @@ public class PickFileControl extends VBox {
     @FXML
     private TextField inputField;
     
-    @FXML
-    private Button button;
-    private FileChooser fileChooser;
+    private final FileChooser fileChooser;
     
     
     public PickFileControl() {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/components/PickFileControl.fxml"));
-        fxmlLoader.setRoot(this);
-        fxmlLoader.setController(this);
-        
-        try {
-            fxmlLoader.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
-        
+        super("/fxml/components/PickFileControl.fxml");
         fileChooser = new FileChooser();
     }
     

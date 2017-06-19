@@ -12,8 +12,7 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         
-        Scenes.init(this);
-        
+        Scenes.init();
         Scene scene = Scenes.SCENE_MAIN_WINDOW.getScene();
         
         stage.setTitle("Tank Parts Importer Shop");
