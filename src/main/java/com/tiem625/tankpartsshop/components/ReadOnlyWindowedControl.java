@@ -5,6 +5,8 @@
  */
 package com.tiem625.tankpartsshop.components;
 
+import com.tiem625.tankpartsshop.controller.EditTransformController;
+import com.tiem625.tankpartsshop.model.ContentProvider;
 import com.tiem625.tankpartsshop.scenes.Scenes;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -61,6 +63,9 @@ public class ReadOnlyWindowedControl extends CustomVBoxControl {
         }
         
         editTransformStage.showAndWait();
+        EditTransformController controller = 
+                (EditTransformController) Scenes.SCENE_EDIT_TRANSFORM.getController();
+        setFieldValue(controller.getContentWriteable().getContentString());
     }
     
 }

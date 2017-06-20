@@ -13,14 +13,14 @@ import com.tiem625.tankpartsshop.utils.ContentWriterUtils;
  */
 public class Vector3 implements ContentWriteable {
     
-    public float x;
-    public float y;
-    public float z;
+    public double x;
+    public double y;
+    public double z;
     
     public static Vector3 ZERO = new Vector3();
     public static Vector3 ONE = new Vector3(1.0f, 1.0f, 1.0f);
     
-    public Vector3(float x, float y, float z) {
+    public Vector3(double x, double y, double z) {
         this.x = x;
         this.y = y;
         this.z = z;

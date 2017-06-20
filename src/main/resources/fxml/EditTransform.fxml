@@ -6,15 +6,17 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import com.tiem625.tankpartsshop.components.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+<AnchorPane id="rootPane" fx:id="rootPane" prefHeight="400.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2"
+            fx:controller="com.tiem625.tankpartsshop.controller.EditTransformController">
   <children>
     <BorderPane layoutX="0.0" layoutY="0.0" padding="$x1" prefHeight="400.0" prefWidth="400.0">
       <bottom>
         <HBox prefHeight="40.0" prefWidth="400.0" spacing="10.0">
           <children>
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" styleClass="cancel-btn" text="Cancel" />
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" styleClass="submit-btn" text="OK" />
+            <Button onAction="#handleCancel" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" styleClass="cancel-btn" text="Cancel" />
+            <Button onAction="#handleOK" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" styleClass="submit-btn" text="OK" />
           </children>
           <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x1" />
@@ -39,11 +41,11 @@
                     <HBox prefHeight="50.0" prefWidth="390.0" spacing="5.0">
                       <children>
                         <Label alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="60.0" text="X: " />
-                        <TextField alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="60.0" />
+                        <DecimalInputField fx:id="posX" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="60.0" />
                         <Label alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="60.0" text="Y: " />
-                        <TextField alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="60.0" />
+                        <DecimalInputField fx:id="posY" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="60.0" />
                         <Label alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="60.0" text="Z: " />
-                        <TextField alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="60.0" />
+                        <DecimalInputField fx:id="posZ" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="60.0" />
                       </children>
                     </HBox>
                   </children>
@@ -65,11 +67,11 @@
                     <HBox prefHeight="50.0" prefWidth="390.0" spacing="5.0">
                       <children>
                         <Label alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="60.0" text="X: " />
-                        <TextField alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="60.0" />
+                        <DecimalInputField fx:id="rotX" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="60.0" />
                         <Label alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="60.0" text="Y: " />
-                        <TextField alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="60.0" />
+                        <DecimalInputField fx:id="rotY" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="60.0" />
                         <Label alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="60.0" text="Z: " />
-                        <TextField alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="60.0" />
+                       <DecimalInputField fx:id="rotZ" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="60.0" />
                       </children>
                     </HBox>
                   </children>
@@ -91,11 +93,11 @@
                     <HBox prefHeight="50.0" prefWidth="390.0" spacing="5.0">
                       <children>
                         <Label alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="60.0" text="X: " />
-                        <TextField alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="60.0" />
+                        <DecimalInputField fx:id="scaleX" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="60.0" />
                         <Label alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="60.0" text="Y: " />
-                        <TextField alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="60.0" />
+                        <DecimalInputField fx:id="scaleY" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="60.0" />
                         <Label alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="60.0" text="Z: " />
-                        <TextField alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="60.0" />
+                        <DecimalInputField fx:id="scaleZ" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="60.0" />
                       </children>
                     </HBox>
                   </children>

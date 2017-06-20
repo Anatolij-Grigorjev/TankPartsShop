@@ -19,6 +19,7 @@ import javafx.scene.Scene;
 public class ShopScene {
     
     protected Scene scene;
+    protected Object controller;
     protected List<String> styles;
     
     public ShopScene(String path) throws IOException {
@@ -26,7 +27,9 @@ public class ShopScene {
     }
     
     public ShopScene(String path, List<String> extraStyles) throws IOException {
-        scene = new Scene(FXMLLoader.load(getClass().getResource(path)));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
+        scene = new Scene(loader.load());
+        controller = loader.getController();
         styles = new ArrayList<>();
         styles.add("/styles/Common.css");
         styles.addAll(extraStyles);
@@ -39,6 +42,10 @@ public class ShopScene {
     
     public List<String> getStyles() {
         return styles;
+    }
+    
+    public Object getController() {
+        return controller;
     }
     
 }

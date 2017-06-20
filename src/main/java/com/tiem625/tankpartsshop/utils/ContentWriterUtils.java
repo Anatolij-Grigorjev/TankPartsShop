@@ -14,9 +14,9 @@ public class ContentWriterUtils {
     private ContentWriterUtils() {};
     
     
-    public static String writeLineValues(float... values) {
+    public static String writeLineValues(double... values) {
         StringBuilder builder = new StringBuilder(";");
-        for (float val: values) {
+        for (double val: values) {
             builder.append(val);
             builder.append(";");
         }
