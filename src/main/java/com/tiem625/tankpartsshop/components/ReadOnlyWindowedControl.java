@@ -5,8 +5,7 @@
  */
 package com.tiem625.tankpartsshop.components;
 
-import com.tiem625.tankpartsshop.controller.EditTransformController;
-import com.tiem625.tankpartsshop.model.ContentProvider;
+import com.tiem625.tankpartsshop.controller.edit.EditTransformController;
 import com.tiem625.tankpartsshop.scenes.Scenes;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -25,7 +24,7 @@ public class ReadOnlyWindowedControl extends CustomVBoxControl {
     @FXML
     private Label valueLabel;
    
-    Stage editTransformStage;
+    Stage editValueStage;
 
     public ReadOnlyWindowedControl() {
         super("/fxml/components/ReadOnlyWindowedControl.fxml");
@@ -58,11 +57,11 @@ public class ReadOnlyWindowedControl extends CustomVBoxControl {
     
     @FXML
     private void handleNeedEditWindow() {
-        if (editTransformStage == null) {
-            editTransformStage = Scenes.initUtilityStage(Scenes.SCENE_EDIT_TRANSFORM);
+        if (editValueStage == null) {
+            editValueStage = Scenes.initUtilityStage(Scenes.SCENE_EDIT_TRANSFORM);
         }
         
-        editTransformStage.showAndWait();
+        editValueStage.showAndWait();
         EditTransformController controller = 
                 (EditTransformController) Scenes.SCENE_EDIT_TRANSFORM.getController();
         setFieldValue(controller.getContentWriteable().getContentString());

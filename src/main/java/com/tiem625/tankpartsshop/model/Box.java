@@ -12,19 +12,19 @@ import com.tiem625.tankpartsshop.utils.ContentWriterUtils;
  * @author Anatolij
  */
 public class Box implements ContentWriteable {
-    
-    public float x;
-    public float y;
-    public float w;
-    public float h;
-    
+
+    public double x;
+    public double y;
+    public double w;
+    public double h;
+
     public static Box ZERO = new Box();
-    
+
     public Box() {
-        this(0.0f, 0.0f, 0.0f, 0.0f);
+        this(0.0, 0.0, 0.0, 0.0);
     }
-    
-    public Box(float x, float y, float w, float h) {
+
+    public Box(double x, double y, double w, double h) {
         this.x = x;
         this.y = y;
         this.w = w;
@@ -33,14 +33,12 @@ public class Box implements ContentWriteable {
 
     @Override
     public String toString() {
-        return ContentWriterUtils.writeLineValues(x,y,w,h);
+        return ContentWriterUtils.writeLineValues(x, y, w, h);
     }
 
     @Override
     public String getSpecialContentPrefix() {
         return "!box";
     }
-    
-    
-    
+
 }

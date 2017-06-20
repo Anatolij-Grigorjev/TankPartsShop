@@ -9,7 +9,7 @@
 <?import com.tiem625.tankpartsshop.components.*?>
 
 <AnchorPane id="rootPane" fx:id="rootPane" prefHeight="400.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2"
-            fx:controller="com.tiem625.tankpartsshop.controller.EditTransformController">
+            fx:controller="com.tiem625.tankpartsshop.controller.edit.EditTransformController">
   <children>
     <BorderPane layoutX="0.0" layoutY="0.0" padding="$x1" prefHeight="400.0" prefWidth="400.0">
       <bottom>

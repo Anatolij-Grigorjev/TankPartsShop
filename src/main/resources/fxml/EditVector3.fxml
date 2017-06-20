@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.tiem625.tankpartsshop.components.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="rootPane" prefHeight="155.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.tiem625.tankpartsshop.controller.edit.EditTransformController">
+  <children>
+    <BorderPane layoutX="0.0" layoutY="0.0" padding="$x1" prefHeight="155.0" prefWidth="400.0">
+      <bottom>
+        <HBox prefHeight="40.0" prefWidth="400.0" spacing="10.0">
+          <children>
+            <Button mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="200.0" styleClass="cancel-btn" text="Cancel" />
+            <Button mnemonicParsing="false" onAction="#handleOK" prefHeight="40.0" prefWidth="200.0" styleClass="submit-btn" text="OK" />
+          </children>
+          <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x1" />
+          </padding>
+        </HBox>
+      </bottom>
+      <center>
+        <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+          <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+              <children>
+                <VBox prefHeight="100.0" prefWidth="390.0">
+                  <children>
+                    <HBox prefHeight="50.0" prefWidth="390.0">
+                      <children>
+                        <Label prefHeight="50.0" prefWidth="391.0" text="Values: " />
+                      </children>
+                      <padding>
+                        <Insets />
+                      </padding>
+                    </HBox>
+                    <HBox prefHeight="50.0" prefWidth="390.0" spacing="5.0">
+                      <children>
+                        <Label alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="60.0" text="X: " />
+                        <DecimalInputField fx:id="x" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="60.0" />
+                        <Label alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="60.0" text="Y: " />
+                        <DecimalInputField fx:id="y" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="60.0" />
+                        <Label alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="60.0" text="Z: " />
+                        <DecimalInputField fx:id="z" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="60.0" />
+                      </children>
+                    </HBox>
+                  </children>
+                </VBox>
+              </children>
+            </HBox>
+          </children>
+          <padding>
+            <Insets bottom="10.0" left="5.0" right="5.0" />
+          </padding>
+        </VBox>
+      </center>
+      <top>
+        <Label prefHeight="40.0" prefWidth="400.0" styleClass="dialog-title" text="Vector3:" />
+      </top>
+    </BorderPane>
+  </children>
+</AnchorPane>
