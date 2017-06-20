@@ -12,6 +12,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -39,6 +40,20 @@ public class Scenes {
         decorator.accept(stage);
         
         return stage;
+    }
+    
+    public static Stage initUtilityStage(ShopScene scene) {
+        return initUtilityStage(scene, null);
+    }
+    
+    public static Stage initUtilityStage(ShopScene scene, Consumer<Stage> decorator) {
+        Stage initStage = initStage(scene, stage -> {
+            stage.initStyle(StageStyle.UTILITY);
+        });
+        if (decorator != null) {
+            decorator.accept(initStage);
+        }
+        return initStage;
     }
     
 }

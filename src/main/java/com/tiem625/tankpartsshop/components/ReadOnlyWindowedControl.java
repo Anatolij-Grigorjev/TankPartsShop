@@ -5,8 +5,10 @@
  */
 package com.tiem625.tankpartsshop.components;
 
+import com.tiem625.tankpartsshop.scenes.Scenes;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 /**
  *
@@ -20,6 +22,8 @@ public class ReadOnlyWindowedControl extends CustomVBoxControl {
     private Label fieldLabel;
     @FXML
     private Label valueLabel;
+   
+    Stage editTransformStage;
 
     public ReadOnlyWindowedControl() {
         super("/fxml/components/ReadOnlyWindowedControl.fxml");
@@ -38,9 +42,25 @@ public class ReadOnlyWindowedControl extends CustomVBoxControl {
         valueLabel.setText(fieldValue);
     }
     
+    public String getTopText() {
+        return topLabel.getText();
+    }
+    
+    public String getFieldText() {
+        return fieldLabel.getText();
+    }
+    
+    public String getFieldValue() {
+        return valueLabel.getText();
+    }
+    
     @FXML
     private void handleNeedEditWindow() {
+        if (editTransformStage == null) {
+            editTransformStage = Scenes.initUtilityStage(Scenes.SCENE_EDIT_TRANSFORM);
+        }
         
+        editTransformStage.showAndWait();
     }
     
 }
