@@ -7,7 +7,10 @@ package com.tiem625.tankpartsshop.controller.edit;
 
 import com.tiem625.tankpartsshop.model.ContentProvider;
 import com.tiem625.tankpartsshop.model.ContentWriteable;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -28,6 +31,11 @@ public abstract class AbstractEditController<T extends ContentWriteable> impleme
         return value;
     }
     
+    public void setValue(T value) {
+        this.value = value;
+        setValueToFields(value);
+    }
+    
     protected void closeWindow() {
         Stage stage = (Stage) rootPane.getScene().getWindow();
         stage.close();
@@ -45,7 +53,8 @@ public abstract class AbstractEditController<T extends ContentWriteable> impleme
         value = makeValueFromFields();
         closeWindow();
     }
-
+    
+    protected abstract void setValueToFields(T value);
     protected abstract T makeDefaultValue();
     protected abstract T makeValueFromFields();
     

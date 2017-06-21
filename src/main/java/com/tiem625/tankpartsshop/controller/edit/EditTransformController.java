@@ -15,11 +15,11 @@ import javafx.fxml.FXML;
  * @author Anatolij
  */
 public class EditTransformController extends AbstractEditController<TransformState> {
-    
-    @FXML 
+
+    @FXML
     private DecimalInputField posX, posY, posZ,
-                              rotX, rotY, rotZ,
-                              scaleX, scaleY, scaleZ;
+            rotX, rotY, rotZ,
+            scaleX, scaleY, scaleZ;
 
     @Override
     protected TransformState makeDefaultValue() {
@@ -32,9 +32,18 @@ public class EditTransformController extends AbstractEditController<TransformSta
                 .mapToDouble(dif -> dif.getValue().doubleValue()).toArray();
         return new TransformState(floats);
     }
-    
-    
-    
-   
-    
+
+    @Override
+    protected void setValueToFields(TransformState value) {
+        posX.setText("" + value.position.x);
+        posY.setText("" + value.position.y);
+        posZ.setText("" + value.position.z);
+        rotX.setText("" + value.rotation.x);
+        rotY.setText("" + value.rotation.y);
+        rotZ.setText("" + value.rotation.z);
+        scaleX.setText("" + value.scale.x);
+        scaleY.setText("" + value.scale.y);
+        scaleZ.setText("" + value.scale.z);
+    }
+
 }

@@ -25,10 +25,20 @@ public class EditBoxController extends AbstractEditController<Box> {
 
     @Override
     protected Box makeValueFromFields() {
-        return new Box(x.getValue().doubleValue(),
+        return new Box(
+                x.getValue().doubleValue(),
                 y.getValue().doubleValue(),
                 w.getValue().doubleValue(),
-                h.getValue().doubleValue());
+                h.getValue().doubleValue()
+        );
+    }
+
+    @Override
+    protected void setValueToFields(Box value) {
+        x.setText("" + value.x);
+        y.setText("" + value.y);
+        w.setText("" + value.w);        
+        h.setText("" + value.h);
     }
 
 }

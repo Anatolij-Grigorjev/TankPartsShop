@@ -5,7 +5,12 @@
  */
 package com.tiem625.tankpartsshop.components;
 
+import com.tiem625.tankpartsshop.controller.edit.AbstractEditController;
+import com.tiem625.tankpartsshop.model.Box;
 import com.tiem625.tankpartsshop.model.ContentProvider;
+import com.tiem625.tankpartsshop.model.ContentWriteable;
+import com.tiem625.tankpartsshop.model.TransformState;
+import com.tiem625.tankpartsshop.model.Vector3;
 import com.tiem625.tankpartsshop.scenes.Scenes;
 import com.tiem625.tankpartsshop.scenes.ShopScene;
 import javafx.beans.NamedArg;
@@ -32,7 +37,6 @@ public class ReadOnlyWindowedControl extends CustomVBoxControl {
 
     public ReadOnlyWindowedControl(@NamedArg("type") String type) {
         super("/fxml/components/ReadOnlyWindowedControl.fxml");
-        editScene = null;
         //need init for later, scenes not ready for stuff yet
         editType = EditWindowType.valueOf(type);
     }
@@ -63,25 +67,33 @@ public class ReadOnlyWindowedControl extends CustomVBoxControl {
 
     @FXML
     private void handleNeedEditWindow() {
+        AbstractEditController<ContentWriteable> controller = null;
         if (editValueStage == null) {
+            ContentWriteable value = null;
+            
             switch (editType) {
                 case TRANSFORM:
                     editScene = Scenes.SCENE_EDIT_TRANSFORM;
+                    value = TransformState.ZERO;
                     break;
                 case VECTOR3:
                     editScene = Scenes.SCENE_EDIT_VECTOR3;
+                    value = Vector3.ZERO;
                     break;
                 case BOX:
                     editScene = Scenes.SCENE_EDIT_BOX;
+                    value = Box.ZERO;
                     break;
                 default:
                     throw new AssertionError(editType);
             }
             editValueStage = Scenes.initUtilityStage(editScene);
+            controller = (AbstractEditController<ContentWriteable>) editScene.getController();
+            controller.setValue(value);
+        } else {
+            controller = (AbstractEditController<ContentWriteable>) editScene.getController();
         }
-
         editValueStage.showAndWait();
-        ContentProvider controller = (ContentProvider) editScene.getController();
         setFieldValue(controller.getContentWriteable().getContentString());
     }
 

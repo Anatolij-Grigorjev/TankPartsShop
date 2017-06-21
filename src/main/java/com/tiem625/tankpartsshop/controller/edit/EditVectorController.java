@@ -25,9 +25,18 @@ public class EditVectorController extends AbstractEditController<Vector3> {
 
     @Override
     protected Vector3 makeValueFromFields() {
-        return new Vector3(x.getValue().doubleValue(),
+        return new Vector3(
+                x.getValue().doubleValue(),
                 y.getValue().doubleValue(),
-                z.getValue().doubleValue());
+                z.getValue().doubleValue()
+        );
+    }
+
+    @Override
+    protected void setValueToFields(Vector3 value) {
+        x.setText("" + value.x); 
+        y.setText("" + value.y);
+        z.setText("" + value.z);   
     }
 
 }
