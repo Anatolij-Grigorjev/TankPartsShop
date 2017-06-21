@@ -8,7 +8,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="rootPane" prefHeight="155.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.tiem625.tankpartsshop.controller.edit.EditTransformController">
+<AnchorPane fx:id="rootPane" prefHeight="155.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" 
+            fx:controller="com.tiem625.tankpartsshop.controller.edit.EditVectorController">
   <children>
     <BorderPane layoutX="0.0" layoutY="0.0" padding="$x1" prefHeight="155.0" prefWidth="400.0">
       <bottom>

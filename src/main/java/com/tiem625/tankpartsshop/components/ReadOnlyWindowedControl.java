@@ -28,7 +28,7 @@ public class ReadOnlyWindowedControl extends CustomVBoxControl {
 
     private Stage editValueStage;
     private ShopScene editScene;
-    private EditWindowType editType;
+    private final EditWindowType editType;
 
     public ReadOnlyWindowedControl(@NamedArg("type") String type) {
         super("/fxml/components/ReadOnlyWindowedControl.fxml");

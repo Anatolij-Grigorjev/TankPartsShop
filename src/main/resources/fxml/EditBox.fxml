@@ -8,7 +8,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="rootPane" prefHeight="250.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.tiem625.tankpartsshop.controller.edit.EditTransformController">
+<AnchorPane fx:id="rootPane" prefHeight="250.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" 
+            fx:controller="com.tiem625.tankpartsshop.controller.edit.EditBoxController">
   <children>
     <BorderPane layoutX="0.0" layoutY="0.0" padding="$x1" prefHeight="250.0" prefWidth="400.0">
       <bottom>
@@ -29,7 +30,7 @@
               <bottom>
                 <HBox prefHeight="30.0" prefWidth="380.0">
                   <children>
-                    <Label prefWidth="60.0" text="WIDTH: " textAlignment="RIGHT">
+                    <Label prefWidth="60.0" text="WIDTH: " HBox.margin="$x2" textAlignment="RIGHT">
                       <HBox.margin>
                         <Insets left="75.0" fx:id="x2" />
                       </HBox.margin>
@@ -57,7 +58,11 @@
               <top>
                 <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="306.0">
                   <children>
-                    <Label text="Y: " textAlignment="RIGHT" HBox.margin="$x3" />
+                    <Label text="Y: " textAlignment="RIGHT" HBox.margin="$x3" >
+                      <HBox.margin>
+                        <Insets left="75.0" fx:id="x3" />
+                      </HBox.margin>
+                    </Label>
                     <DecimalInputField fx:id="y" prefWidth="60.0" />
                   </children>
                 </HBox>
@@ -65,7 +70,7 @@
             </BorderPane>
           </children>
           <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x3" />
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
           </padding>
         </VBox>
       </center>
