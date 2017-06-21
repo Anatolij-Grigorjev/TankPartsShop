@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.tiem625.tankpartsshop.components.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="rootPane" prefHeight="250.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.tiem625.tankpartsshop.controller.edit.EditTransformController">
+  <children>
+    <BorderPane layoutX="0.0" layoutY="0.0" padding="$x1" prefHeight="250.0" prefWidth="400.0">
+      <bottom>
+        <HBox prefHeight="40.0" prefWidth="400.0" spacing="10.0">
+          <children>
+            <Button mnemonicParsing="false" onAction="#handleCancel" prefHeight="40.0" prefWidth="200.0" styleClass="cancel-btn" text="Cancel" />
+            <Button mnemonicParsing="false" onAction="#handleOK" prefHeight="40.0" prefWidth="200.0" styleClass="submit-btn" text="OK" />
+          </children>
+          <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x1" />
+          </padding>
+        </HBox>
+      </bottom>
+      <center>
+        <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+          <children>
+            <BorderPane prefHeight="200.0" prefWidth="380.0">
+              <bottom>
+                <HBox prefHeight="30.0" prefWidth="380.0">
+                  <children>
+                    <Label prefWidth="60.0" text="WIDTH: " textAlignment="RIGHT">
+                      <HBox.margin>
+                        <Insets left="75.0" fx:id="x2" />
+                      </HBox.margin>
+                    </Label>
+                    <DecimalInputField fx:id="w" prefWidth="74.0" />
+                  </children>
+                </HBox>
+              </bottom>
+              <left>
+                <HBox prefHeight="300.0" prefWidth="88.0">
+                  <children>
+                    <Label text="X: " textAlignment="RIGHT" />
+                    <DecimalInputField fx:id="x" prefWidth="60.0" />
+                  </children>
+                </HBox>
+              </left>
+              <right>
+                <HBox fillHeight="true" prefHeight="110.0" prefWidth="88.0" spacing="10.0" BorderPane.alignment="TOP_RIGHT">
+                  <children>
+                    <DecimalInputField fx:id="h" alignment="BOTTOM_LEFT" prefHeight="40.0" prefWidth="24.0" />
+                    <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="110.0" prefWidth="13.000099999997474" text="H&#10;E&#10;I&#10;G&#10;H&#10;T" textAlignment="CENTER" wrapText="false" HBox.hgrow="NEVER" />
+                  </children>
+                </HBox>
+              </right>
+              <top>
+                <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="306.0">
+                  <children>
+                    <Label text="Y: " textAlignment="RIGHT" HBox.margin="$x3" />
+                    <DecimalInputField fx:id="y" prefWidth="60.0" />
+                  </children>
+                </HBox>
+              </top>
+            </BorderPane>
+          </children>
+          <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x3" />
+          </padding>
+        </VBox>
+      </center>
+      <top>
+        <Label prefHeight="40.0" prefWidth="400.0" styleClass="dialog-title" text="Box:" />
+      </top>
+    </BorderPane>
+  </children>
+</AnchorPane>

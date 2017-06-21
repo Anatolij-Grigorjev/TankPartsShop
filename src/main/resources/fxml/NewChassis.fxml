@@ -72,10 +72,10 @@
                   </VBox>
                </children>
             </AnchorPane>
-            <ReadOnlyWindowedControl topText="On Tank Position: " fieldText="Transform: " />
-            <ReadOnlyWindowedControl topText="Turret Pivot: " fieldText="Transform: " />
-            <ReadOnlyWindowedControl topText="Healthbar Offset: " fieldText="Vector3: " />
-            <ReadOnlyWindowedControl topText="Box Collider: " fieldText="Box: " />
+            <ReadOnlyWindowedControl type="TRANSFORM" topText="On Tank Position: " fieldText="Transform: " />
+            <ReadOnlyWindowedControl type="TRANSFORM" topText="Turret Pivot: " fieldText="Transform: " />
+            <ReadOnlyWindowedControl type="VECTOR3" topText="Healthbar Offset: " fieldText="Vector3: " />
+            <ReadOnlyWindowedControl type="BOX" topText="Box Collider: " fieldText="Box: " />
          </children>
          <opaqueInsets>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

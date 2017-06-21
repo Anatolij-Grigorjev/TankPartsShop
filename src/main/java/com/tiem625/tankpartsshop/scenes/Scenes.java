@@ -8,9 +8,6 @@ package com.tiem625.tankpartsshop.scenes;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.function.Consumer;
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -26,6 +23,7 @@ public class Scenes {
     public static ShopScene SCENE_NEW_CHASSIS;
     public static ShopScene SCENE_EDIT_TRANSFORM;
     public static ShopScene SCENE_EDIT_VECTOR3;
+    public static ShopScene SCENE_EDIT_BOX;
     
     public static void init() throws IOException {
         
@@ -33,6 +31,7 @@ public class Scenes {
         SCENE_NEW_CHASSIS = new ShopScene("/fxml/NewChassis.fxml", Arrays.asList("/styles/NewChassis.css"));
         SCENE_EDIT_TRANSFORM = new ShopScene("/fxml/EditTransform.fxml");
         SCENE_EDIT_VECTOR3 = new ShopScene("/fxml/EditVector3.fxml");
+        SCENE_EDIT_BOX = new ShopScene("/fxml/EditBox.fxml");
         
     }
     
