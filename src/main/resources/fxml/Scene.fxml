@@ -9,7 +9,22 @@
 
 <AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tiem625.tankpartsshop.controller.MainFrameController">
    <children>
-      <TitledPane alignment="TOP_LEFT" collapsible="false" layoutX="43.0" layoutY="29.0" prefHeight="125.0" prefWidth="938.0" text="Tank Parts" textAlignment="JUSTIFY">
+      <TitledPane animated="false" collapsible="false" layoutX="43.0" layoutY="33.0" prefHeight="98.0" prefWidth="938.0" text="Unity Project Home">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="72.0" prefWidth="938.0" spacing="10.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" prefHeight="72.0" prefWidth="110.0" text="Directory: " textAlignment="RIGHT" />
+                        <TextField fx:id="projectDirField" prefHeight="25.0" prefWidth="682.0" />
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" text="Project Home..." />
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <TitledPane alignment="TOP_LEFT" collapsible="false" layoutX="43.0" layoutY="170.0" prefHeight="125.0" prefWidth="938.0" text="Tank Parts" textAlignment="JUSTIFY">
          <opaqueInsets>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </opaqueInsets>

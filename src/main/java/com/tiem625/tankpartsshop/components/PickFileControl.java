@@ -45,6 +45,7 @@ public class PickFileControl extends CustomVBoxControl {
     
     @FXML
     private void handleChoosingFile() {
+        
         File file = fileChooser.showOpenDialog(this.getScene().getWindow());
         if (file != null) {
             inputField.setText(file.getAbsolutePath());
