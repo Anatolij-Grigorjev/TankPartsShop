@@ -7,7 +7,6 @@ package com.tiem625.tankpartsshop.components;
 
 import com.tiem625.tankpartsshop.controller.edit.AbstractEditController;
 import com.tiem625.tankpartsshop.model.Box;
-import com.tiem625.tankpartsshop.model.ContentProvider;
 import com.tiem625.tankpartsshop.model.ContentWriteable;
 import com.tiem625.tankpartsshop.model.TransformState;
 import com.tiem625.tankpartsshop.model.Vector3;
@@ -73,15 +72,15 @@ public class ReadOnlyWindowedControl extends CustomVBoxControl {
             
             switch (editType) {
                 case TRANSFORM:
-                    editScene = Scenes.SCENE_EDIT_TRANSFORM;
+                    editScene = Scenes.SCENE_EDIT_TRANSFORM();
                     value = TransformState.ZERO;
                     break;
                 case VECTOR3:
-                    editScene = Scenes.SCENE_EDIT_VECTOR3;
+                    editScene = Scenes.SCENE_EDIT_VECTOR3();
                     value = Vector3.ZERO;
                     break;
                 case BOX:
-                    editScene = Scenes.SCENE_EDIT_BOX;
+                    editScene = Scenes.SCENE_EDIT_BOX();
                     value = Box.ZERO;
                     break;
                 default:

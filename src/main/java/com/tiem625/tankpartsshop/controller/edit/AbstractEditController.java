@@ -44,7 +44,9 @@ public abstract class AbstractEditController<T extends ContentWriteable> impleme
     
     @FXML
     protected void handleCancel() {
-        value = makeDefaultValue();
+        if (value == null) {
+            value = makeDefaultValue();
+        }
         closeWindow();
     }
     

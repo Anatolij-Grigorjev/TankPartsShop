@@ -50,7 +50,7 @@
               <right>
                 <HBox fillHeight="true" prefHeight="110.0" prefWidth="88.0" spacing="10.0" BorderPane.alignment="TOP_RIGHT">
                   <children>
-                    <DecimalInputField fx:id="h" alignment="BOTTOM_LEFT" prefHeight="40.0" prefWidth="24.0" />
+                    <DecimalInputField fx:id="h" alignment="BOTTOM_LEFT" prefHeight="40.0" prefWidth="40.0" />
                     <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="110.0" prefWidth="13.000099999997474" text="H&#10;E&#10;I&#10;G&#10;H&#10;T" textAlignment="CENTER" wrapText="false" HBox.hgrow="NEVER" />
                   </children>
                 </HBox>

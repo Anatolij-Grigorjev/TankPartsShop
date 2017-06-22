@@ -34,7 +34,7 @@ public class MainFrameController implements Initializable {
     @FXML
     private void handleNewChassisButton(Event source) {
         if (newChassisModal == null) {
-            newChassisModal = Scenes.initUtilityStage(Scenes.SCENE_NEW_CHASSIS);
+            newChassisModal = Scenes.initUtilityStage(Scenes.SCENE_NEW_CHASSIS());
         }
         newChassisModal.showAndWait();
     }
