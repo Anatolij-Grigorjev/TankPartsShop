@@ -26,7 +26,6 @@ public class Scenes {
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
-
     }
 
     public static ShopScene SCENE_NEW_CHASSIS() {
@@ -35,7 +34,6 @@ public class Scenes {
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
-
     }
 
     public static ShopScene SCENE_EDIT_TRANSFORM() {
@@ -44,7 +42,6 @@ public class Scenes {
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
-
     }
 
     public static ShopScene SCENE_EDIT_VECTOR3() {
@@ -53,7 +50,6 @@ public class Scenes {
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
-
     }
 
     public static ShopScene SCENE_EDIT_BOX() {
@@ -62,7 +58,14 @@ public class Scenes {
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
-
+    }
+    
+    public static ShopScene SCENE_RESULTS_DIALOG() {
+        try {
+            return new ShopScene("/fxml/ResultJSONDialog.fxml");
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
     public static Stage initStage(ShopScene scene, Consumer<Stage> decorator) {

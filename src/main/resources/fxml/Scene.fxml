@@ -17,7 +17,7 @@
                      <children>
                         <Label alignment="CENTER_RIGHT" prefHeight="72.0" prefWidth="110.0" text="Directory: " textAlignment="RIGHT" />
                         <TextField fx:id="projectDirField" prefHeight="25.0" prefWidth="682.0" />
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" text="Project Home..." />
+                        <Button onAction="#handleSetProjectHome" mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" text="Project Home..." />
                      </children>
                   </HBox>
                </children>

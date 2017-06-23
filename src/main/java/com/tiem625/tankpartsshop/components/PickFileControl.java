@@ -52,6 +52,11 @@ public class PickFileControl extends CustomVBoxControl {
         return patternBits[patternBits.length - 1];
     }
     
+    public String getStrippedFileName() {
+        String filename = getFileName();
+        return filename.substring(0, filename.lastIndexOf("."));
+    }
+    
     @FXML
     private void handleChoosingFile() {
         

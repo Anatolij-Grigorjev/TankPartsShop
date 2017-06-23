@@ -37,7 +37,7 @@ public class DialogUtils {
     public static Alert formHasBlanks() {
         Alert alert = makeAlert();
         alert.setTitle("Form has blanks");
-        alert.setContentText("Form ahs blanks, finish filling out form first!");
+        alert.setContentText("Form has blanks, finish filling out form first!");
         
         return alert;
     }
@@ -48,5 +48,8 @@ public class DialogUtils {
         
         return alert;
     }
+    
+    
+   
     
 }
