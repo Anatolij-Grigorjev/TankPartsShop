@@ -27,10 +27,24 @@ public class DialogUtils {
     
     
     public static Alert projectRootNotSet() {
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setHeaderText(null);
+        Alert alert = makeAlert();
         alert.setTitle("No Project root found");
         alert.setContentText("Globals.PROJECT_ROOT_DIR was null when checked!");
+        
+        return alert;
+    }
+    
+    public static Alert formHasBlanks() {
+        Alert alert = makeAlert();
+        alert.setTitle("Form has blanks");
+        alert.setContentText("Form ahs blanks, finish filling out form first!");
+        
+        return alert;
+    }
+    
+    private static Alert makeAlert() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setHeaderText(null);
         
         return alert;
     }

@@ -6,13 +6,10 @@
 package com.tiem625.tankpartsshop.components;
 
 import java.io.File;
-import java.io.IOException;
+import java.util.regex.Pattern;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 
 /**
@@ -41,6 +38,18 @@ public class PickFileControl extends CustomVBoxControl {
     
     public void setFieldName(String value) {
         fieldLabel.setText(value);
+    }
+    
+    public String getFilePath() {
+        return inputField.getText();
+    }
+    
+    public String getFileName() {
+        
+        String[] patternBits = getFilePath()
+                .split(Pattern.compile(File.separator).pattern()); 
+        //take last
+        return patternBits[patternBits.length - 1];
     }
     
     @FXML

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.*?>
 <?import com.tiem625.tankpartsshop.components.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="400.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tiem625.tankpartsshop.controller.NewChassisController">
+<AnchorPane fx:id="rootPane" id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="400.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tiem625.tankpartsshop.controller.NewChassisController">
     <children>
         <VBox layoutY="-4.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="403.0" spacing="10.0">
             <children>
@@ -66,7 +66,7 @@
                         </GridPane>
                         <VBox layoutX="255.0" layoutY="22.0" prefHeight="205.0" prefWidth="126.0" spacing="25.0">
                             <children>
-                                <Button onAction="#makeJSONButton" alignment="CENTER" contentDisplay="CENTER" layoutX="255.0" layoutY="22.0" mnemonicParsing="false" prefHeight="103.0" prefWidth="126.0" styleClass="submit-btn" text="Make JSON" textAlignment="CENTER" />
+                                <Button onAction="#handleMakeJSONButton" alignment="CENTER" contentDisplay="CENTER" layoutX="255.0" layoutY="22.0" mnemonicParsing="false" prefHeight="103.0" prefWidth="126.0" styleClass="submit-btn" text="Make JSON" textAlignment="CENTER" />
                                 <Button onAction="#handleCancel" alignment="CENTER" cancelButton="true" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="103.0" prefWidth="126.0" styleClass="cancel-btn" text="Cancel" textAlignment="CENTER" />
                             </children>
                         </VBox>

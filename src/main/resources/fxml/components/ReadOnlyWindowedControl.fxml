@@ -13,7 +13,7 @@
       <AnchorPane prefHeight="40.0" prefWidth="390.0" GridPane.rowIndex="1">
         <children>
           <Label fx:id="fieldLabel" layoutX="0.0" layoutY="0.0" prefHeight="47.0" prefWidth="103.0" text="&lt;FIELDLABELTEXT&gt;: " />
-          <Label fx:id="valueLabel" layoutX="95.0" layoutY="0.0" prefHeight="47.0" prefWidth="195.0" text="&lt;VALUETEXT&gt;" />
+          <Label fx:id="valueLabel" layoutX="95.0" layoutY="0.0" prefHeight="47.0" prefWidth="195.0" text="" />
           <Button layoutX="290.0" layoutY="-1.0" mnemonicParsing="false" onAction="#handleNeedEditWindow" prefHeight="47.0" prefWidth="100.0" text="Edit..." />
         </children>
       </AnchorPane>
