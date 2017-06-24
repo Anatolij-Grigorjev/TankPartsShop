@@ -7,6 +7,9 @@
 .submit-btn {
     -fx-background-color: lightgreen;
 }
+.make-cmd-btn {
+    -fx-background-color: lightblue;
+}
 .dialog-title {
     -fx-padding: 5px;
     -fx-font-weight: bolder;

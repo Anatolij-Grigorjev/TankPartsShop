@@ -22,7 +22,7 @@ public class ContentWriterUtils {
         PART_TURRET("Turret"),
         PART_ENGINE("Engine"),
         PART_TRACKS("Tracks");
-        private String folder;
+        private final String folder;
 
         private TankPartType(String folder) {
             this.folder = folder;
@@ -37,8 +37,8 @@ public class ContentWriterUtils {
         CONTENT_IMAGE("!img;", Arrays.asList("Images")),
         CONTENT_SPRITESHEET("!sprites;", Arrays.asList("Images", "Sprites"));
 
-        private List<String> preFolders;
-        private String prefix;
+        private final List<String> preFolders;
+        private final String prefix;
 
         private TankPartContentType(String prefix, List<String> preFolders) {
             this.prefix = prefix;
@@ -60,13 +60,9 @@ public class ContentWriterUtils {
     ;
     
     public static String writeLineValues(double... values) {
-        StringBuilder builder = new StringBuilder(";");
-        for (double val : values) {
-            builder.append(val);
-            builder.append(";");
-        }
-
-        return builder.toString();
+        return Arrays.stream(values)
+                .mapToObj(String::valueOf)
+                .collect(Collectors.joining(";", ";", ""));
     }
 
     public static String writeTankPartContentLeadIn(

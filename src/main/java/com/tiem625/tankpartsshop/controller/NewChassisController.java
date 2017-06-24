@@ -14,6 +14,7 @@ import com.tiem625.tankpartsshop.utils.ContentWriterUtils;
 import com.tiem625.tankpartsshop.utils.DialogUtils;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -24,7 +25,6 @@ import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.apache.commons.lang3.StringUtils;
-import org.codehaus.jackson.map.ObjectMapper;
 
 /**
  * FXML Controller class
@@ -83,19 +83,23 @@ public class NewChassisController implements Initializable {
     @FXML
     private void handleMakeJSONButton() throws IOException {
 
-        boolean hasBlanks = rootPane.getChildren().stream()
-                .filter(node -> {
-                    return (node instanceof TextField) || 
-                            (node instanceof ReadOnlyWindowedControl);
-                })
-                .map(node -> {
-            if (node instanceof TextField) {
-                return ((TextField) node).getText();
-            } else if (node instanceof ReadOnlyWindowedControl) {
-                return ((ReadOnlyWindowedControl) node).getFieldValue();
-            }
-            return null;
-        }).anyMatch(StringUtils::isBlank);
+        boolean hasBlanks = Arrays.asList(
+                idField.getText(),
+                nameField.getText(),
+                pickSpriteSheet.getFilePath(),
+                pickShopImage.getFilePath(),
+                pickGarageImage.getFilePath(),
+                mass.getText(),
+                integrity.getText(),
+                regeneration.getText(),
+                regenDelay.getText(),
+                activeSprites.getText(),
+                price.getText(),
+                rowcBoxCollider.getFieldValue(),
+                rowcHealthbarOffset.getFieldValue(),
+                rowcTankPosition.getFieldValue(),
+                rowcTurretPivot.getFieldValue()
+        ).stream().anyMatch(StringUtils::isBlank);
         if (hasBlanks) {
             DialogUtils.formHasBlanks().showAndWait();
         } else {
@@ -130,17 +134,12 @@ public class NewChassisController implements Initializable {
             newChassis.put("healthbar_offset", rowcHealthbarOffset.getFieldValue());
             
             
-            String chassisJson = new ObjectMapper()
-                    .writerWithDefaultPrettyPrinter()
-                    .writeValueAsString(newChassis);
-            
-            
             if (resultsJSONStage == null) {
                 scene = Scenes.SCENE_RESULTS_DIALOG();
                 resultsJSONStage = Scenes.initUtilityStage(scene);
             }
             
-            ((ResultJSONDialogController)scene.getController()).setText(chassisJson);
+            ((ResultJSONDialogController)scene.getController()).setJSONMap(newChassis);
             resultsJSONStage.showAndWait();
 
         }
