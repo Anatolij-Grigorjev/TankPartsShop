@@ -5,14 +5,31 @@
  */
 package com.tiem625.tankpartsshop;
 
+import org.apache.commons.lang3.SystemUtils;
+
 /**
  *
  * @author Anatolij
  */
 public class Globals {
     
-    private Globals() {}
+    private Globals() {
+        if (SystemUtils.IS_OS_MAC_OSX) {
+            CMD_EXECUTABLE = "/Applications/Unity.app/Contents/MacOS/Unity " ;
+            CMD_LINE_SEPARATOR = " \\";
+            CMD_FILE_SHEBANG = "#!/bin/sh";
+        } else {
+            CMD_EXECUTABLE = "\"C:\\Program Files\\Unity\\Unity.exe\"";
+            CMD_LINE_SEPARATOR = " ^";
+            CMD_FILE_SHEBANG = "";
+        }
+    }
     
     public static String PROJECT_ROOT_DIR = null;
+    
+    public static String CMD_EXECUTABLE;
+    public static String CMD_LINE_SEPARATOR; 
+    public static String CMD_IMPORTER_SCRIPT = "DefaultImporter.ImportPart";
+    public static String CMD_FILE_SHEBANG;
     
 }

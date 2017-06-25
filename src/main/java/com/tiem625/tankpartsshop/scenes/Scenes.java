@@ -67,6 +67,14 @@ public class Scenes {
             throw new RuntimeException(ex);
         }
     }
+    
+    public static ShopScene SCENE_CMD_DIALOG() {
+        try {
+            return new ShopScene("/fxml/ResultCmdDialog.fxml");
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
 
     public static Stage initStage(ShopScene scene, Consumer<Stage> decorator) {
         Stage stage = new Stage();
