@@ -40,8 +40,10 @@ public class ResultCmdDialogController {
                 "-executeMethod " + Globals.CMD_IMPORTER_SCRIPT
         ).stream().forEach(line -> addCmdLine(cmdBuilder.append(line)));
         
-        
-        
+        //-simpleassets key has a CSV list that represents simple asset keys
+        //loop the json structure - if a key represents a string with 
+        //a "special form" then that is a "simple asset" and need to have its
+        //key registered here, while the asset itsef gets registered elsewhere
         
         
         
