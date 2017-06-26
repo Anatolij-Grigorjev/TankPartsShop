@@ -5,6 +5,10 @@
  */
 package com.tiem625.tankpartsshop;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import org.apache.commons.lang3.SystemUtils;
 
 /**
@@ -26,7 +30,10 @@ public class Globals {
     }
     
     public static String PROJECT_ROOT_DIR = null;
-    
+    public static List<String> SIMPLE_ASSETS_PREFIXES = Arrays.asList(
+            "!img;", 
+            "!snd;"
+    );
     public static String CMD_EXECUTABLE;
     public static String CMD_LINE_SEPARATOR; 
     public static String CMD_IMPORTER_SCRIPT = "DefaultImporter.ImportPart";

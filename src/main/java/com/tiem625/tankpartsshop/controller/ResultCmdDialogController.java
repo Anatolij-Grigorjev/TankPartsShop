@@ -8,9 +8,11 @@ package com.tiem625.tankpartsshop.controller;
 import com.tiem625.tankpartsshop.Globals;
 import java.util.Arrays;
 import java.util.Map;
+import java.util.stream.Collectors;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
+import org.apache.commons.lang3.StringUtils;
 
 
 /**ˆ
@@ -28,7 +30,9 @@ public class ResultCmdDialogController {
         textArea.setText(text);
     }
     
-    public void setJson(Map<String, Object> json) {
+    public void setJson(
+            Map<String, Object> json,
+            Map<String, Integer> spriteMeta) {
         
         StringBuilder cmdBuilder = new StringBuilder();
         //add known usual cmd lines
@@ -44,6 +48,23 @@ public class ResultCmdDialogController {
         //loop the json structure - if a key represents a string with 
         //a "special form" then that is a "simple asset" and need to have its
         //key registered here, while the asset itsef gets registered elsewhere
+        String simpleAssets = json.keySet().stream()
+                .filter(key -> {
+                    Object value = json.get(key);
+                    return value instanceof String &&
+                            Globals.SIMPLE_ASSETS_PREFIXES.stream().anyMatch(prefix -> ((String)value).startsWith(prefix));
+                }).map(key -> {
+                    
+                    
+                    return key;
+                }).collect(Collectors.joining(",", "-simpleassets ", ""));
+        if (StringUtils.isNotBlank(simpleAssets)) {
+            addCmdLine(cmdBuilder.append(simpleAssets));
+
+        }
+        
+        //separate keys for the spritesheet stuff
+        
         
         
         

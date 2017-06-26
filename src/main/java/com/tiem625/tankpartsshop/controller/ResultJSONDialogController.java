@@ -54,7 +54,7 @@ public class ResultJSONDialogController {
             cmdStage = Scenes.initUtilityStage(cmdScene);
         }
         
-        ((ResultCmdDialogController)cmdScene.getController()).setJson(json);
+//        ((ResultCmdDialogController)cmdScene.getController()).setJson(json);
         cmdStage.showAndWait();
         
     }
