@@ -17,7 +17,7 @@ import org.apache.commons.lang3.SystemUtils;
  */
 public class Globals {
     
-    private Globals() {
+    static {
         if (SystemUtils.IS_OS_MAC_OSX) {
             CMD_EXECUTABLE = "/Applications/Unity.app/Contents/MacOS/Unity " ;
             CMD_LINE_SEPARATOR = " \\";

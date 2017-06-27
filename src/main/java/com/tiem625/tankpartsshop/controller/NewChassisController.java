@@ -133,13 +133,19 @@ public class NewChassisController implements Initializable {
             newChassis.put("turret_pivot", rowcTurretPivot.getFieldValue());
             newChassis.put("healthbar_offset", rowcHealthbarOffset.getFieldValue());
             
+            //postfixes needed when assembling console command
+            Map<String, String> postfixes = new HashMap<>();
+            postfixes.put("shop_item", pickShopImage.getFilenamePostfix());
+            postfixes.put("garage_item", pickGarageImage.getFilenamePostfix());
+            postfixes.put("spritesheet", pickSpriteSheet.getFilenamePostfix());
             
             if (resultsJSONStage == null) {
                 scene = Scenes.SCENE_RESULTS_DIALOG();
                 resultsJSONStage = Scenes.initUtilityStage(scene);
             }
-            
-            ((ResultJSONDialogController)scene.getController()).setJSONMap(newChassis);
+            ResultJSONDialogController controller = ((ResultJSONDialogController)scene.getController());
+            controller.setFilePostfixesMap(postfixes);
+            controller.setJSONMap(newChassis);
             resultsJSONStage.showAndWait();
 
         }

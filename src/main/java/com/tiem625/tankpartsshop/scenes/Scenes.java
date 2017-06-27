@@ -75,6 +75,14 @@ public class Scenes {
             throw new RuntimeException(ex);
         }
     }
+    
+    public static ShopScene SCENE_SPRITE_META() {
+        try {
+            return new ShopScene("/fxml/SpritesheetMetaDialog.fxml");
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
 
     public static Stage initStage(ShopScene scene, Consumer<Stage> decorator) {
         Stage stage = new Stage();

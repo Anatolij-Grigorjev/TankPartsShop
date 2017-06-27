@@ -6,6 +6,7 @@
 package com.tiem625.tankpartsshop.controller;
 
 import com.tiem625.tankpartsshop.Globals;
+import java.io.File;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -32,7 +33,8 @@ public class ResultCmdDialogController {
     
     public void setJson(
             Map<String, Object> json,
-            Map<String, Integer> spriteMeta) {
+            Map<String, Integer> spriteMeta,
+            Map<String, String> filePostfixes) {
         
         StringBuilder cmdBuilder = new StringBuilder();
         //add known usual cmd lines
@@ -54,8 +56,12 @@ public class ResultCmdDialogController {
                     return value instanceof String &&
                             Globals.SIMPLE_ASSETS_PREFIXES.stream().anyMatch(prefix -> ((String)value).startsWith(prefix));
                 }).map(key -> {
-                    
-                    
+                    //add values at key
+                    addCmdLine(
+                            cmdBuilder
+                                    .append("-").append(key)
+                                    .append(" ").append(jsonPath2CmdPath((String)json.get(key), filePostfixes.get(key)))
+                    );
                     return key;
                 }).collect(Collectors.joining(",", "-simpleassets ", ""));
         if (StringUtils.isNotBlank(simpleAssets)) {
@@ -64,18 +70,37 @@ public class ResultCmdDialogController {
         }
         
         //separate keys for the spritesheet stuff
-        
-        
+        addCmdLine(cmdBuilder.append("-spritesheet ").append(
+                jsonPath2CmdPath((String)json.get("spritesheet"), filePostfixes.get("spritesheet")))
+        );
+        spriteMeta.entrySet().stream().forEach(entry -> {
+            addCmdLine(cmdBuilder
+                    .append("-").append(entry.getKey())
+                    .append(" ").append(entry.getValue()));
+        });
+        //final param to end command (not interpreted, 
+        //but keeps newline loop healthy)
+        cmdBuilder.append("-end");
         
         
         cookedCmd = cmdBuilder.toString();
         setText(cookedCmd);
     }
     
-    private StringBuilder addCmdLine(StringBuilder builder) {
+    private static StringBuilder addCmdLine(StringBuilder builder) {
         return builder
                 .append(Globals.CMD_LINE_SEPARATOR)
                 .append(System.lineSeparator());
+    }
+    
+    //strip special prefix and append project path start
+    private static String jsonPath2CmdPath(String jsonPath, String postfix) {
+      
+        String[] prefixAndaPath = jsonPath.split(";", 2);
+        String barePath = prefixAndaPath.length < 2? prefixAndaPath[0] : prefixAndaPath[1];
+        
+        String prefix = "Assets" + File.separator + "Resources" + File.separator;
+        return prefix + barePath.replace("\\", File.separator) + postfix;
     }
     
     
