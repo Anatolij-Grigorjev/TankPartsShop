@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.SystemUtils;
 
 
 /**ˆ
@@ -37,12 +38,13 @@ public class ResultCmdDialogController {
             Map<String, String> filePostfixes) {
         
         StringBuilder cmdBuilder = new StringBuilder();
+      
         //add known usual cmd lines
         Arrays.asList(
                 Globals.CMD_EXECUTABLE, 
                 "-batchmode", 
                 "-quit", 
-                "-projectPath " + Globals.PROJECT_ROOT_DIR,
+                "-projectPath " + quotePath(Globals.PROJECT_ROOT_DIR),
                 "-executeMethod " + Globals.CMD_IMPORTER_SCRIPT
         ).stream().forEach(line -> addCmdLine(cmdBuilder.append(line)));
         
@@ -60,7 +62,8 @@ public class ResultCmdDialogController {
                     addCmdLine(
                             cmdBuilder
                                     .append("-").append(key)
-                                    .append(" ").append(jsonPath2CmdPath((String)json.get(key), filePostfixes.get(key)))
+                                    .append(" ").append(
+                                            quotePath(jsonPath2CmdPath((String)json.get(key), filePostfixes.get(key))))
                     );
                     return key;
                 }).collect(Collectors.joining(",", "-simpleassets ", ""));
@@ -71,7 +74,7 @@ public class ResultCmdDialogController {
         
         //separate keys for the spritesheet stuff
         addCmdLine(cmdBuilder.append("-spritesheet ").append(
-                jsonPath2CmdPath((String)json.get("spritesheet"), filePostfixes.get("spritesheet")))
+                quotePath(jsonPath2CmdPath((String)json.get("spritesheet"), filePostfixes.get("spritesheet"))))
         );
         spriteMeta.entrySet().stream().forEach(entry -> {
             addCmdLine(cmdBuilder
@@ -85,6 +88,14 @@ public class ResultCmdDialogController {
         
         cookedCmd = cmdBuilder.toString();
         setText(cookedCmd);
+    }
+    
+    private static String quotePath(String path) {
+        if (SystemUtils.IS_OS_WINDOWS) {
+            return "\"" + path + "\"";
+        } else {
+            return path;
+        }
     }
     
     private static StringBuilder addCmdLine(StringBuilder builder) {

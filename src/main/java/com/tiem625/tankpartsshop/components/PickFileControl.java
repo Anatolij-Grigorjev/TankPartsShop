@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 /**
  *
@@ -47,7 +48,7 @@ public class PickFileControl extends CustomVBoxControl {
     public String getFileName() {
         
         String[] patternBits = getFilePath()
-                .split(Pattern.compile(File.separator).pattern()); 
+                .split(Pattern.compile(StringEscapeUtils.escapeJava(File.separator)).pattern()); 
         //take last
         return patternBits[patternBits.length - 1];
     }
