@@ -32,7 +32,8 @@ public class Globals {
     public static String PROJECT_ROOT_DIR = null;
     public static List<String> SIMPLE_ASSETS_PREFIXES = Arrays.asList(
             "!img;", 
-            "!snd;"
+            "!snd;",
+            "!json;"
     );
     public static String CMD_EXECUTABLE;
     public static String CMD_LINE_SEPARATOR; 

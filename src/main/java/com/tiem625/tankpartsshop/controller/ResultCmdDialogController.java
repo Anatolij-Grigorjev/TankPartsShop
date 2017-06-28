@@ -6,6 +6,7 @@
 package com.tiem625.tankpartsshop.controller;
 
 import com.tiem625.tankpartsshop.Globals;
+import com.tiem625.tankpartsshop.utils.ContentWriterUtils;
 import java.io.File;
 import java.util.Arrays;
 import java.util.Map;
@@ -69,7 +70,6 @@ public class ResultCmdDialogController {
                 }).collect(Collectors.joining(",", "-simpleassets ", ""));
         if (StringUtils.isNotBlank(simpleAssets)) {
             addCmdLine(cmdBuilder.append(simpleAssets));
-
         }
         
         //separate keys for the spritesheet stuff
@@ -123,6 +123,7 @@ public class ResultCmdDialogController {
     @FXML
     private void handleExecuteCmd() {
         
+        //copy files to needed dirs before writing command to file and performing it
         
         
     }

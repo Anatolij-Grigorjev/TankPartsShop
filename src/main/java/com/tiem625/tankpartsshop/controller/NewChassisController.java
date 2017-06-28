@@ -114,6 +114,11 @@ public class NewChassisController implements Initializable {
                     ContentWriterUtils.TankPartType.PART_CHASSIS,
                     ContentWriterUtils.TankPartContentType.CONTENT_SPRITESHEET, 
                     nameField.getText());
+            
+            String jsonLeadIn = ContentWriterUtils.writeTankPartContentLeadIn(
+                    ContentWriterUtils.TankPartType.PART_CHASSIS,
+                    ContentWriterUtils.TankPartContentType.CONTENT_JSON,
+                    nameField.getText());
 
             Map<String, Object> newChassis = new HashMap();
 
@@ -132,12 +137,14 @@ public class NewChassisController implements Initializable {
             newChassis.put("box_collider", rowcBoxCollider.getFieldValue());
             newChassis.put("turret_pivot", rowcTurretPivot.getFieldValue());
             newChassis.put("healthbar_offset", rowcHealthbarOffset.getFieldValue());
+            newChassis.put("json", jsonLeadIn + nameField.getText().toLowerCase().replace(" ", "_"));
             
             //postfixes needed when assembling console command
             Map<String, String> postfixes = new HashMap<>();
             postfixes.put("shop_item", pickShopImage.getFilenamePostfix());
             postfixes.put("garage_item", pickGarageImage.getFilenamePostfix());
             postfixes.put("spritesheet", pickSpriteSheet.getFilenamePostfix());
+            postfixes.put("json", ".json");
             
             if (resultsJSONStage == null) {
                 scene = Scenes.SCENE_RESULTS_DIALOG();
