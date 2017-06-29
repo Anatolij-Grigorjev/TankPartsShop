@@ -22,11 +22,11 @@ public class ShopScene {
     protected Object controller;
     protected List<String> styles;
     
-    public ShopScene(String path) throws IOException {
-        this(path, Collections.EMPTY_LIST);
+    public ShopScene(WindowType type, String path) throws IOException {
+        this(type, path, Collections.EMPTY_LIST);
     }
     
-    public ShopScene(String path, List<String> extraStyles) throws IOException {
+    public ShopScene(WindowType type, String path, List<String> extraStyles) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
         scene = new Scene(loader.load());
         controller = loader.getController();
@@ -34,6 +34,8 @@ public class ShopScene {
         styles.add("/styles/Common.css");
         styles.addAll(extraStyles);
         scene.getStylesheets().addAll(styles);
+        
+        Scenes.topWindows.put(type, this);
     }
     
     public Scene getScene() {

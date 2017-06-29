@@ -6,6 +6,8 @@
 package com.tiem625.tankpartsshop.controller;
 
 import com.tiem625.tankpartsshop.Globals;
+import com.tiem625.tankpartsshop.scenes.Scenes;
+import com.tiem625.tankpartsshop.scenes.WindowType;
 import com.tiem625.tankpartsshop.utils.ContentWriterUtils;
 import java.io.File;
 import java.util.Arrays;
@@ -124,7 +126,8 @@ public class ResultCmdDialogController {
     private void handleExecuteCmd() {
         
         //copy files to needed dirs before writing command to file and performing it
-        
+        NewChassisController chassisController = (NewChassisController)Scenes.topWindows.get(WindowType.NEW_CHASSIS).getController();
+        //TODO: use chassis controller paths for stuff like copying files n shit
         
     }
     

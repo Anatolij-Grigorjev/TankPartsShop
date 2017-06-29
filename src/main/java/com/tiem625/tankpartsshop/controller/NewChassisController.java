@@ -41,7 +41,7 @@ public class NewChassisController implements Initializable {
             nameField;
 
     @FXML
-    private PickFileControl pickSpriteSheet,
+    public PickFileControl pickSpriteSheet,
             pickShopImage,
             pickGarageImage;
 

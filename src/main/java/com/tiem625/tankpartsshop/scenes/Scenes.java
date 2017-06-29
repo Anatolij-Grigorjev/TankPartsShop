@@ -7,6 +7,8 @@ package com.tiem625.tankpartsshop.scenes;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Consumer;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -16,13 +18,15 @@ import javafx.stage.StageStyle;
  * @author Tiem625
  */
 public class Scenes {
+    
+    public static Map<WindowType, ShopScene> topWindows = new HashMap<>();
 
     private Scenes() {
     }
 
     public static ShopScene SCENE_MAIN_WINDOW() {
         try {
-            return new ShopScene("/fxml/Scene.fxml");
+            return new ShopScene(WindowType.MAIN_WINDOW, "/fxml/Scene.fxml");
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
@@ -30,7 +34,7 @@ public class Scenes {
 
     public static ShopScene SCENE_NEW_CHASSIS() {
         try {
-            return new ShopScene("/fxml/NewChassis.fxml", Arrays.asList("/styles/NewChassis.css"));
+            return new ShopScene(WindowType.NEW_CHASSIS, "/fxml/NewChassis.fxml", Arrays.asList("/styles/NewChassis.css"));
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
@@ -38,7 +42,7 @@ public class Scenes {
 
     public static ShopScene SCENE_EDIT_TRANSFORM() {
         try {
-            return new ShopScene("/fxml/EditTransform.fxml");
+            return new ShopScene(WindowType.EDIT_TRANSFORM, "/fxml/EditTransform.fxml");
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
@@ -46,7 +50,7 @@ public class Scenes {
 
     public static ShopScene SCENE_EDIT_VECTOR3() {
         try {
-            return new ShopScene("/fxml/EditVector3.fxml");
+            return new ShopScene(WindowType.EDIT_VECTOR3, "/fxml/EditVector3.fxml");
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
@@ -54,7 +58,7 @@ public class Scenes {
 
     public static ShopScene SCENE_EDIT_BOX() {
         try {
-            return new ShopScene("/fxml/EditBox.fxml");
+            return new ShopScene(WindowType.EDIT_BOX, "/fxml/EditBox.fxml");
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
@@ -62,7 +66,7 @@ public class Scenes {
     
     public static ShopScene SCENE_RESULTS_DIALOG() {
         try {
-            return new ShopScene("/fxml/ResultJSONDialog.fxml");
+            return new ShopScene(WindowType.RESULTS_DIALOG, "/fxml/ResultJSONDialog.fxml");
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
@@ -70,7 +74,7 @@ public class Scenes {
     
     public static ShopScene SCENE_CMD_DIALOG() {
         try {
-            return new ShopScene("/fxml/ResultCmdDialog.fxml");
+            return new ShopScene(WindowType.CMD_DIALOG, "/fxml/ResultCmdDialog.fxml");
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
@@ -78,7 +82,7 @@ public class Scenes {
     
     public static ShopScene SCENE_SPRITE_META() {
         try {
-            return new ShopScene("/fxml/SpritesheetMetaDialog.fxml");
+            return new ShopScene(WindowType.SPRITE_META, "/fxml/SpritesheetMetaDialog.fxml");
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
