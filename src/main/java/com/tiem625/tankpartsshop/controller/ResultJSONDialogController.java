@@ -33,6 +33,7 @@ public class ResultJSONDialogController {
     private ShopScene spriteMetaScene;
     private Stage spriteMetaStage;
     private Map<String, String> filePostfixes;
+    private Map<String, String> filePaths;
 
     private void setText(String text) {
         textArea.setText(text);
@@ -77,13 +78,17 @@ public class ResultJSONDialogController {
             cmdStage = Scenes.initUtilityStage(cmdScene);
         }
         ((ResultCmdDialogController)cmdScene.getController())
-                .setJson(json, spriteSheetMeta, filePostfixes);
+                .setJson(json, spriteSheetMeta, filePostfixes, filePaths);
         cmdStage.showAndWait();
 
     }
 
     void setFilePostfixesMap(Map<String, String> postfixes) {
         this.filePostfixes = postfixes;
+    }
+
+    void setFilePathsMap(Map<String, String> paths) {
+        this.filePaths = paths;
     }
 
 }

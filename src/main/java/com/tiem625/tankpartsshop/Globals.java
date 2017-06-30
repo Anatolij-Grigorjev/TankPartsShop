@@ -22,10 +22,12 @@ public class Globals {
             CMD_EXECUTABLE = "/Applications/Unity.app/Contents/MacOS/Unity " ;
             CMD_LINE_SEPARATOR = " \\";
             CMD_FILE_SHEBANG = "#!/bin/sh";
+            CMD_EXTENSION = ".sh";
         } else {
             CMD_EXECUTABLE = "\"C:\\Program Files\\Unity\\Unity.exe\"";
             CMD_LINE_SEPARATOR = " ^";
             CMD_FILE_SHEBANG = "";
+            CMD_EXTENSION = ".bat";
         }
     }
     
@@ -36,6 +38,7 @@ public class Globals {
             "!json;"
     );
     public static String CMD_EXECUTABLE;
+    public static String CMD_EXTENSION;
     public static String CMD_LINE_SEPARATOR; 
     public static String CMD_IMPORTER_SCRIPT = "DefaultImporter.ImportPart";
     public static String CMD_FILE_SHEBANG;

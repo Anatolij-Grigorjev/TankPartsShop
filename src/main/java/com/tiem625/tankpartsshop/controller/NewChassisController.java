@@ -146,12 +146,20 @@ public class NewChassisController implements Initializable {
             postfixes.put("spritesheet", pickSpriteSheet.getFilenamePostfix());
             postfixes.put("json", ".json");
             
+            //paths needed when assembling console command
+            Map<String, String> paths = new HashMap<>();
+            paths.put("shop_item", pickShopImage.getFilePath());
+            paths.put("garage_item", pickGarageImage.getFilePath());
+            paths.put("spritesheet", pickSpriteSheet.getFilePath());
+            
+            
             if (resultsJSONStage == null) {
                 scene = Scenes.SCENE_RESULTS_DIALOG();
                 resultsJSONStage = Scenes.initUtilityStage(scene);
             }
             ResultJSONDialogController controller = ((ResultJSONDialogController)scene.getController());
             controller.setFilePostfixesMap(postfixes);
+            controller.setFilePathsMap(paths);
             controller.setJSONMap(newChassis);
             resultsJSONStage.showAndWait();
 
