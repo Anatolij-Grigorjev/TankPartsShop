@@ -55,7 +55,7 @@ public class SpritesheetMetaDialogController {
     private void handleOK() {
         if (Arrays.asList(width, height, rows, cols)
                 .stream().anyMatch(field -> field.getValue().intValue() == 0)) {
-                DialogUtils.formHasBlanks();
+                DialogUtils.formHasBlanks(spriteMetaPane.getScene().getWindow());
                 return ;
         } 
         

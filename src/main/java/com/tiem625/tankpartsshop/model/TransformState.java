@@ -43,8 +43,8 @@ public class TransformState implements ContentWriteable {
     public String toString() {
         //skip the leading ';' when adding more vectors
         return position.toString()
-                + rotation.toString().substring(1)
-                + scale.toString().substring(1);
+                + rotation.toString()
+                + scale.toString();
     }
 
 }

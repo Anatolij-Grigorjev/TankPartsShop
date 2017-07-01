@@ -10,6 +10,7 @@ import com.tiem625.tankpartsshop.components.PickFileControl;
 import com.tiem625.tankpartsshop.components.ReadOnlyWindowedControl;
 import com.tiem625.tankpartsshop.scenes.Scenes;
 import com.tiem625.tankpartsshop.scenes.ShopScene;
+import com.tiem625.tankpartsshop.scenes.WindowType;
 import com.tiem625.tankpartsshop.utils.ContentWriterUtils;
 import com.tiem625.tankpartsshop.utils.DialogUtils;
 import java.io.IOException;
@@ -67,7 +68,9 @@ public class NewChassisController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        TextInputDialog nameDialog = DialogUtils.newPartNameDialog("Chassis");
+        TextInputDialog nameDialog = DialogUtils.newPartNameDialog(
+                Scenes.topWindows.get(WindowType.MAIN_WINDOW).getScene().getWindow(),
+                "Chassis");
         String name = nameDialog.showAndWait().orElse("default");
 
         idField.setText("CH_" + name.toLowerCase() + "01");
@@ -101,7 +104,8 @@ public class NewChassisController implements Initializable {
                 rowcTurretPivot.getFieldValue()
         ).stream().anyMatch(StringUtils::isBlank);
         if (hasBlanks) {
-            DialogUtils.formHasBlanks().showAndWait();
+            DialogUtils.formHasBlanks(rootPane.getScene().getWindow())
+                    .showAndWait();
         } else {
 
             String singleImageLeadIn = ContentWriterUtils.writeTankPartContentLeadIn(

@@ -48,7 +48,8 @@ public class MainFrameController implements Initializable {
     private void handleNewChassisButton(Event source) {
 
         if (Globals.PROJECT_ROOT_DIR == null) {
-            DialogUtils.projectRootNotSet().showAndWait();
+            DialogUtils.projectRootNotSet(btnNewChassis.getScene().getWindow())
+                    .showAndWait();
         } else {
 
             if (newChassisModal == null) {

@@ -6,22 +6,20 @@
 package com.tiem625.tankpartsshop.controller;
 
 import com.tiem625.tankpartsshop.Globals;
-import com.tiem625.tankpartsshop.scenes.Scenes;
-import com.tiem625.tankpartsshop.scenes.WindowType;
-import com.tiem625.tankpartsshop.utils.ContentWriterUtils;
+import com.tiem625.tankpartsshop.utils.DialogUtils;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
@@ -179,10 +177,14 @@ public class ResultCmdDialogController {
                 + "Commands" + File.separator 
                 + json.get("name") + "_cmd" + Globals.CMD_EXTENSION);
         commandFile.getParentFile().mkdirs();
-        commandFile.createNewFile();
-        try (Writer writer = new FileWriter(commandFile)) {
+        //rewrites file if exsits
+        try (Writer writer = 
+                Files.newBufferedWriter(
+                        commandFile.toPath(), 
+                        StandardCharsets.UTF_8)) {
             if (StringUtils.isNotBlank(Globals.CMD_FILE_SHEBANG)) {
                 writer.write(Globals.CMD_FILE_SHEBANG);
+                writer.write(System.lineSeparator());
                 writer.write(System.lineSeparator());
             }
             writer.write(cookedCmd);
@@ -191,7 +193,8 @@ public class ResultCmdDialogController {
         //try creating json file
         File jsonDestinationFile = new File(Globals.PROJECT_ROOT_DIR + 
                 File.separator + 
-                jsonPath2CmdPath((String) json.get("json"), filePostfixes.get("json")));
+                jsonPath2CmdPath((String) json.get("json"), 
+                        filePostfixes.get("json")));
         
         File jsonSource = File.createTempFile("tankpartsjson", ".json");
         try (Writer writer = new FileWriter(jsonSource)) {
@@ -203,9 +206,12 @@ public class ResultCmdDialogController {
         }
         writePartFile(jsonSource, jsonDestinationFile);
         //do simple assets and spritesheet if they real
-        List<String> pathsKeysList = Arrays.asList(cmdElements.get("simpleassets").split(","));
+        List<String> pathsKeysList = new ArrayList(
+                Arrays.asList(cmdElements.get("simpleassets").split(","))
+        );
         pathsKeysList.add("spritesheet");
-        pathsKeysList.forEach( asset -> {
+        pathsKeysList.stream().filter(asset -> !asset.contains("json"))
+                .forEach( asset -> {
             File destination = new File(Globals.PROJECT_ROOT_DIR + 
                     File.separator + 
                     cmdElements.get(asset));
@@ -219,8 +225,13 @@ public class ResultCmdDialogController {
             }
         });
         
-        //execute generated cmd
+        //TODO: execute generated cmd
         
+        
+        
+        DialogUtils.commandCompleteOK(textArea.getScene().getWindow())
+                .showAndWait();
+        handleCancel();
     }
     
     private void writePartFile(File srcPath, File destPath) throws IOException {
@@ -234,10 +245,11 @@ public class ResultCmdDialogController {
         if (parentFile != null) {
             parentFile.mkdirs();
         }
-        destPath.createNewFile();
         
-        IOUtils.copy(new FileInputStream(srcPath), 
-                new FileOutputStream(destPath));
+        IOUtils.copy(
+                Files.newInputStream(srcPath.toPath()), 
+                Files.newOutputStream(destPath.toPath())
+        );
     }
     
     
