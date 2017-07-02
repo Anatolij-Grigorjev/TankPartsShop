@@ -15,7 +15,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class DecimalInputField extends TextField {
     
-    private final String DECIMAL_REGEX = "^\\d+\\.?\\d*$";
+    private final String DECIMAL_REGEX = "^-{0,1}\\d+\\.?\\d*$";
     
     public DecimalInputField() {
         super();

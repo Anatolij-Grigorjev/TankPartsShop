@@ -19,7 +19,7 @@ public class Globals {
     
     static {
         if (SystemUtils.IS_OS_MAC_OSX) {
-            CMD_EXECUTABLE = "/Applications/Unity.app/Contents/MacOS/Unity " ;
+            CMD_EXECUTABLE = "/Applications/Unity/Unity.app/Contents/MacOS/Unity " ;
             CMD_LINE_SEPARATOR = " \\";
             CMD_FILE_SHEBANG = "#!/bin/sh";
             CMD_EXTENSION = ".sh";

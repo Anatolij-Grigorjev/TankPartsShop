@@ -8,13 +8,14 @@ package com.tiem625.tankpartsshop.controller;
 import com.tiem625.tankpartsshop.Globals;
 import com.tiem625.tankpartsshop.utils.DialogUtils;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.OpenOption;
+import java.nio.file.StandardOpenOption;
+import java.nio.file.attribute.PosixFilePermissions;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -181,13 +182,20 @@ public class ResultCmdDialogController {
         try (Writer writer = 
                 Files.newBufferedWriter(
                         commandFile.toPath(), 
-                        StandardCharsets.UTF_8)) {
+                        StandardCharsets.UTF_8, 
+                        StandardOpenOption.TRUNCATE_EXISTING,
+                        StandardOpenOption.WRITE)) {
             if (StringUtils.isNotBlank(Globals.CMD_FILE_SHEBANG)) {
                 writer.write(Globals.CMD_FILE_SHEBANG);
                 writer.write(System.lineSeparator());
                 writer.write(System.lineSeparator());
             }
             writer.write(cookedCmd);
+        }
+        
+        if (!SystemUtils.IS_OS_WINDOWS) {
+            Files.setPosixFilePermissions(commandFile.toPath(), 
+                    PosixFilePermissions.fromString("rwxr-xr-x"));
         }
         
         //try creating json file
@@ -197,7 +205,8 @@ public class ResultCmdDialogController {
                         filePostfixes.get("json")));
         
         File jsonSource = File.createTempFile("tankpartsjson", ".json");
-        try (Writer writer = new FileWriter(jsonSource)) {
+        try (Writer writer = Files.newBufferedWriter(jsonSource.toPath(),
+                StandardCharsets.UTF_8)) {
             writer.write(
                     new ObjectMapper()
                     .writerWithDefaultPrettyPrinter()
@@ -225,9 +234,14 @@ public class ResultCmdDialogController {
             }
         });
         
-        //TODO: execute generated cmd
         
-        
+        System.out.println("Executing: " + commandFile.getAbsolutePath());
+        Process p = Runtime.getRuntime().exec(commandFile.getAbsolutePath());
+        try {
+            System.out.println("result: " + p.waitFor());
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
         
         DialogUtils.commandCompleteOK(textArea.getScene().getWindow())
                 .showAndWait();
@@ -247,8 +261,11 @@ public class ResultCmdDialogController {
         }
         
         IOUtils.copy(
-                Files.newInputStream(srcPath.toPath()), 
-                Files.newOutputStream(destPath.toPath())
+                Files.newInputStream(srcPath.toPath(),
+                        StandardOpenOption.READ), 
+                Files.newOutputStream(destPath.toPath(),
+                        StandardOpenOption.WRITE,
+                        StandardOpenOption.TRUNCATE_EXISTING)
         );
     }
     
