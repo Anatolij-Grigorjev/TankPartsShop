@@ -5,6 +5,7 @@
  */
 package com.tiem625.tankpartsshop.components;
 
+import com.tiem625.tankpartsshop.Globals;
 import java.io.File;
 import java.util.regex.Pattern;
 import javafx.fxml.FXML;
@@ -31,6 +32,7 @@ public class PickFileControl extends CustomVBoxControl {
     public PickFileControl() {
         super("/fxml/components/PickFileControl.fxml");
         fileChooser = new FileChooser();
+        fileChooser.setInitialDirectory(new File(Globals.PROJECT_ROOT_DIR));
     }
     
     public String getFieldName() {

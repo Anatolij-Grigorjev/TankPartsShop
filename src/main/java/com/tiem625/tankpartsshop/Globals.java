@@ -24,7 +24,7 @@ public class Globals {
             CMD_FILE_SHEBANG = "#!/bin/sh";
             CMD_EXTENSION = ".sh";
         } else {
-            CMD_EXECUTABLE = "\"C:\\Program Files\\Unity\\Unity.exe\"";
+            CMD_EXECUTABLE = "\"C:\\Program Files\\Unity\\Editor\\Unity.exe\"";
             CMD_LINE_SEPARATOR = " ^";
             CMD_FILE_SHEBANG = "";
             CMD_EXTENSION = ".bat";

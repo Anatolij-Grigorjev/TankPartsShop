@@ -9,7 +9,6 @@ import com.tiem625.tankpartsshop.scenes.Scenes;
 import com.tiem625.tankpartsshop.scenes.ShopScene;
 import com.tiem625.tankpartsshop.utils.ContentWriterUtils;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Map;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
@@ -61,10 +60,10 @@ public class ResultJSONDialogController {
         
         SpritesheetMetaDialogController controller = 
                 (SpritesheetMetaDialogController) spriteMetaScene.getController();
-        String spritesheetPath = (String) json.get("spritesheet");
-        controller.setSpriteName(
-                spritesheetPath.substring(spritesheetPath.lastIndexOf(ContentWriterUtils.DOUBLE_SLASH))
-        );
+//        String spritesheetPath = (String) json.get("spritesheet");
+//        controller.setSpriteName(
+//                spritesheetPath.substring(spritesheetPath.lastIndexOf(ContentWriterUtils.DOUBLE_SLASH))
+//        );
         spriteMetaStage.showAndWait();
         Map<String, Integer> spriteSheetMeta = controller.getMeta();
         //cancel was pressed, quit cooking command

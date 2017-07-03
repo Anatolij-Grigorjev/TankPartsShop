@@ -25,7 +25,7 @@
       </HBox>
    </bottom>
    <center>
-      <TitledPane fx:id="spriteMetaPane" animated="false" collapsible="false" prefHeight="336.0" prefWidth="300.0" text="&lt;SPRITESHEET&gt;" BorderPane.alignment="CENTER">
+      <TitledPane fx:id="spriteMetaPane" animated="false" collapsible="false" prefHeight="336.0" prefWidth="300.0" text="SINGLE SPRITE PARAMS" BorderPane.alignment="CENTER">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
