@@ -33,6 +33,10 @@ public class ContentWriterUtils {
         public String getFolder() {
             return folder;
         }
+        
+        public String getPartTypeName() {
+            return folder;
+        }
     }
 
     public static enum TankPartContentType {
