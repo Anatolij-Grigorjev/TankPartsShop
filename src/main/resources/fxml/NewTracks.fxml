@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.*?>
 <?import com.tiem625.tankpartsshop.components.*?>
 
-<AnchorPane id="AnchorPane" fx:id="rootPane" maxHeight="750.0" maxWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tiem625.tankpartsshop.controller.NewChassisController">
+<AnchorPane id="AnchorPane" fx:id="rootPane" maxHeight="750.0" maxWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tiem625.tankpartsshop.controller.NewTracksController">
     <children>
         <HBox layoutY="-1.0" prefHeight="650.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -50,16 +50,16 @@
                                     </rowConstraints>
                                     <children>
                                         <Label text="Mass:" />
-                                        <Label text="Integrity:" GridPane.rowIndex="1" />
-                                        <Label text="Regeneration:" GridPane.rowIndex="2" />
-                                        <Label text="Regen Delay:" GridPane.rowIndex="3" />
-                                        <Label text="Active Sprites: " GridPane.rowIndex="4" />
-                                        <Label text="Price: " GridPane.rowIndex="5" />
+                                        <Label text="Active Sprites: " GridPane.rowIndex="1" />
+                                        <Label text="Coupling:" GridPane.rowIndex="2" />
+                                        <Label text="Turn Speed:" GridPane.rowIndex="3" />
+                                        <Label text="Lower Integrity: " GridPane.rowIndex="4" />
+                                        <Label text="Price:" GridPane.rowIndex="5" />
                                         <DecimalInputField fx:id="mass" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                                        <DecimalInputField fx:id="integrity" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                        <DecimalInputField fx:id="regeneration" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                        <DecimalInputField fx:id="regenDelay" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                        <DecimalInputField fx:id="activeSprites" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                        <DecimalInputField fx:id="activeSprites" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <DecimalInputField fx:id="coupling" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        <DecimalInputField fx:id="turnSpeed" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                        <DecimalInputField fx:id="lowerIntegrity" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                         <DecimalInputField fx:id="price" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                                     </children>
                                 </GridPane>
@@ -85,9 +85,8 @@
                         <PickFileControl fx:id="pickShopImage" fieldName="Shop Image: " />
                         <PickFileControl fx:id="pickGarageImage" fieldName="Garage Image: " />
                         <ReadOnlyWindowedControl fx:id="rowcTankPosition" fieldText="Transform: " topText="On Tank Position: " type="TRANSFORM" />
-                        <ReadOnlyWindowedControl fx:id="rowcTurretPivot" fieldText="Transform: " topText="Turret Pivot: " type="TRANSFORM" />
-                        <ReadOnlyWindowedControl fx:id="rowcHealthbarOffset" fieldText="Vector3: " topText="Healthbar Offset: " type="VECTOR3" />
-                        <ReadOnlyWindowedControl fx:id="rowcBoxCollider" fieldText="Box: " topText="Box Collider: " type="BOX" />
+                        <ReadOnlyWindowedControl fx:id="rowcLeftTrackPosition" fieldText="Transform: " topText="Left Track Position: " type="TRANSFORM" />
+                        <ReadOnlyWindowedControl fx:id="rowcRightTrackPosition" fieldText="Transform: " topText="Right Track Position: " type="TRANSFORM" />
                     </children>
                 </VBox>
             </children>

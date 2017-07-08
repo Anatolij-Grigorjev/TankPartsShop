@@ -134,7 +134,8 @@ public abstract class AbstractNewTankPartController implements Initializable {
                 newPartJson.put("spritesheet", spritesheetLeadIn + pickSpriteSheet.getStrippedFileName());
                 newPartJson.put("active_sprites", activeSprites.getValue());
             }
-            if (StringUtils.isNotBlank(rowcBoxCollider.getFieldValue())) {
+            if (rowcBoxCollider != null && 
+                    StringUtils.isNotBlank(rowcBoxCollider.getFieldValue())) {
                 newPartJson.put("box_collider", rowcBoxCollider.getFieldValue());
             }
             addExtraJsonMapFields(newPartJson);

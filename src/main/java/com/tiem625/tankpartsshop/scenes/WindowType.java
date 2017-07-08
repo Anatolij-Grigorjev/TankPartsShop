@@ -12,6 +12,7 @@ package com.tiem625.tankpartsshop.scenes;
 public enum WindowType {
     
     NEW_CHASSIS,
+    NEW_TRACKS,
     MAIN_WINDOW,
     EDIT_TRANSFORM,
     EDIT_VECTOR3,
