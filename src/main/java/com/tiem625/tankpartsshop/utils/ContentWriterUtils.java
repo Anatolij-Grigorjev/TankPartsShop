@@ -41,7 +41,8 @@ public class ContentWriterUtils {
     public static enum TankPartContentType {
         CONTENT_IMAGE("!img;", Arrays.asList("Images")),
         CONTENT_SPRITESHEET("!sprites;", Arrays.asList("Images", "Sprites")),
-        CONTENT_JSON("!json;", Collections.EMPTY_LIST);
+        CONTENT_JSON("!json;", Collections.EMPTY_LIST),
+        CONTENT_SOUND("!snd;", Arrays.asList("Sounds"));
 
         private final List<String> preFolders;
         private final String prefix;

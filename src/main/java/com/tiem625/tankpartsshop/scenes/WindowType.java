@@ -13,6 +13,8 @@ public enum WindowType {
     
     NEW_CHASSIS,
     NEW_TRACKS,
+    NEW_ENGINE,
+    NEW_TURRET,
     MAIN_WINDOW,
     EDIT_TRANSFORM,
     EDIT_VECTOR3,

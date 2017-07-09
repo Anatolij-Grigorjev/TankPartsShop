@@ -47,6 +47,14 @@ public class Scenes {
             throw new RuntimeException(ex);
         }
     }
+    
+    public static ShopScene SCENE_NEW_ENGINE() {
+        try {
+            return new ShopScene(WindowType.NEW_ENGINE, "/fxml/NewEngine.fxml");
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
 
     public static ShopScene SCENE_EDIT_TRANSFORM() {
         try {

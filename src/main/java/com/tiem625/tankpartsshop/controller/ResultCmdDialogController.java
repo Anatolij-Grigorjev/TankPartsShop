@@ -113,16 +113,18 @@ public class ResultCmdDialogController {
             writeLineAsElement(simpleAssets);
             addCmdLine(cmdBuilder.append(simpleAssets));
         }
-
-        //separate keys for the spritesheet stuff
-        String sheetPath = quotePath(jsonPath2CmdPath((String) json.get("spritesheet"), filePostfixes.get("spritesheet")));
-        cmdElements.put("spritesheet", sheetPath);
-        addCmdLine(cmdBuilder.append("-spritesheet ").append(sheetPath));
-        spriteMeta.entrySet().stream().forEach(entry -> {
-            addCmdLine(cmdBuilder
-                    .append("-").append(entry.getKey())
-                    .append(" ").append(entry.getValue()));
-        });
+        
+        if (json.containsKey("spritesheet")) {
+            //separate keys for the spritesheet stuff
+            String sheetPath = quotePath(jsonPath2CmdPath((String) json.get("spritesheet"), filePostfixes.get("spritesheet")));
+            cmdElements.put("spritesheet", sheetPath);
+            addCmdLine(cmdBuilder.append("-spritesheet ").append(sheetPath));
+            spriteMeta.entrySet().stream().forEach(entry -> {
+                addCmdLine(cmdBuilder
+                        .append("-").append(entry.getKey())
+                        .append(" ").append(entry.getValue()));
+            });
+        }
         //final param to end command (not interpreted, 
         //but keeps newline loop healthy)
         cmdBuilder.append("-end");

@@ -108,7 +108,8 @@ public abstract class AbstractNewTankPartController implements Initializable {
                     nameField.getText()
             );
             String spritesheetLeadIn = null;
-            if (StringUtils.isNotBlank(pickSpriteSheet.getFilePath())) {
+            if (pickSpriteSheet != null && 
+                    StringUtils.isNotBlank(pickSpriteSheet.getFilePath())) {
                 spritesheetLeadIn = ContentWriterUtils.writeTankPartContentLeadIn(
                         getPartType(),
                         ContentWriterUtils.TankPartContentType.CONTENT_SPRITESHEET, 
@@ -151,6 +152,7 @@ public abstract class AbstractNewTankPartController implements Initializable {
             if (spritesheetLeadIn != null) {
                 postfixes.put("spritesheet", pickSpriteSheet.getFilenamePostfix());
             }
+            addExtraPostfixes(postfixes);
             
             //paths needed when assembling console command
             Map<String, String> paths = new HashMap<>();
@@ -159,7 +161,7 @@ public abstract class AbstractNewTankPartController implements Initializable {
             if (spritesheetLeadIn != null) {
                 paths.put("spritesheet", pickSpriteSheet.getFilePath());
             }
-            
+            addExtraPaths(paths);
             
             if (resultsJSONStage == null) {
                 resultJSONScene = Scenes.SCENE_RESULTS_DIALOG();
@@ -176,5 +178,11 @@ public abstract class AbstractNewTankPartController implements Initializable {
     }
     
     protected abstract void addExtraJsonMapFields(Map<String, Object> partialJson);
+
+    protected void addExtraPostfixes(Map<String, String> postfixes) {        
+    }
+
+    protected void addExtraPaths(Map<String, String> paths) { 
+    }
     
 }
