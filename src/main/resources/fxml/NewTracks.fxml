@@ -42,7 +42,7 @@
                                     </columnConstraints>
                                     <rowConstraints>
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -50,17 +50,17 @@
                                     </rowConstraints>
                                     <children>
                                         <Label text="Mass:" />
-                                        <Label text="Active Sprites: " GridPane.rowIndex="1" />
-                                        <Label text="Coupling:" GridPane.rowIndex="2" />
-                                        <Label text="Turn Speed:" GridPane.rowIndex="3" />
-                                        <Label text="Lower Integrity: " GridPane.rowIndex="4" />
-                                        <Label text="Price:" GridPane.rowIndex="5" />
+                                        
+                                        <Label text="Coupling:" GridPane.rowIndex="1" />
+                                        <Label text="Turn Speed:" GridPane.rowIndex="2" />
+                                        <Label text="Lower Integrity: " GridPane.rowIndex="3" />
+                                        <Label text="Price:" GridPane.rowIndex="4" />
                                         <DecimalInputField fx:id="mass" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                                        <DecimalInputField fx:id="activeSprites" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                        <DecimalInputField fx:id="coupling" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                        <DecimalInputField fx:id="turnSpeed" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                        <DecimalInputField fx:id="lowerIntegrity" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                        <DecimalInputField fx:id="price" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                        
+                                        <DecimalInputField fx:id="coupling" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <DecimalInputField fx:id="turnSpeed" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        <DecimalInputField fx:id="lowerIntegrity" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                        <DecimalInputField fx:id="price" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                     </children>
                                 </GridPane>
                                 <VBox layoutX="255.0" layoutY="22.0" prefHeight="205.0" prefWidth="126.0" spacing="25.0">
