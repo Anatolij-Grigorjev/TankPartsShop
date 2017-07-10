@@ -16,7 +16,6 @@ import java.util.function.Supplier;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
@@ -26,9 +25,6 @@ import javafx.stage.Stage;
  * @author Tiem625
  */
 public class MainFrameController implements Initializable {
-
-    @FXML
-    Button btnNewChassis;
 
     @FXML
     TextField projectDirField;
@@ -79,7 +75,7 @@ public class MainFrameController implements Initializable {
     
     private boolean assertRootDir() {
         if (Globals.PROJECT_ROOT_DIR == null) {
-            DialogUtils.projectRootNotSet(btnNewChassis.getScene().getWindow())
+            DialogUtils.projectRootNotSet(projectDirField.getScene().getWindow())
                     .showAndWait();
             return false;
         } else {

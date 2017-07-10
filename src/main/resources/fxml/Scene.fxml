@@ -31,7 +31,7 @@
          <content>
             <HBox alignment="CENTER" prefHeight="112.0" prefWidth="936.0" spacing="25.0">
                <children>
-                  <Button fx:id="btnNewChassis" mnemonicParsing="false" onAction="#handleNewChassisButton" prefHeight="64.0" prefWidth="124.0" text="CHASSIS" />
+                  <Button mnemonicParsing="false" onAction="#handleNewChassisButton" prefHeight="64.0" prefWidth="124.0" text="CHASSIS" />
                   <Button layoutX="20.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleNewTracksButton" prefHeight="64.0" prefWidth="124.0" text="TRACKS" />
                   <Button layoutX="144.0" layoutY="20.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="124.0" text="TURRET" />
                   <Button layoutX="268.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleNewEngineButton" prefHeight="64.0" prefWidth="124.0" text="ENGINE" />
