@@ -228,7 +228,9 @@ public class ResultCmdDialogController {
         List<String> pathsKeysList = new ArrayList(
                 Arrays.asList(cmdElements.get("simpleassets").split(","))
         );
-        pathsKeysList.add("spritesheet");
+        if (filePaths.containsKey("spritesheet")) {
+            pathsKeysList.add("spritesheet");
+        }
         pathsKeysList.stream().filter(asset -> !asset.contains("json"))
                 .forEach(asset -> {
                     //take quoted paths into account when making a file thing

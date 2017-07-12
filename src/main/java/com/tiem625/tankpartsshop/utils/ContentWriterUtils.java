@@ -21,7 +21,7 @@ public class ContentWriterUtils {
     public static enum TankPartType {
         PART_CHASSIS("Chassis"),
         PART_TURRET("Turret"),
-        PART_ENGINE("Engine"),
+        PART_ENGINE("Engines"),
         PART_TRACKS("Tracks");
         private final String folder;
 
